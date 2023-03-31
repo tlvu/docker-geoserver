@@ -1,10 +1,10 @@
 FROM pavics/geoserver:2.22.2-kartoza-build20230226
 
-ADD scripts /scripts
-
-RUN chmod +x /scripts/*.sh
-
 # Taken from
 # https://github.com/kartoza/docker-geoserver/blob/b8d43882c674c3c1a9569d483f00e546e2895654/scripts/functions.sh#L114
 RUN wget --progress=bar:force:noscroll -c --tries=2 https://sourceforge.net/projects/geoserver/files/GeoServer/2.22.2/extensions/geoserver-2.22.2-metadata-plugin.zip -O /stable_plugins/metadata-plugin.zip && \
    wget --progress=bar:force:noscroll -c --tries=2 https://sourceforge.net/projects/geoserver/files/GeoServer/2.22.2/extensions/geoserver-2.22.2-csw-iso-plugin.zip -O /stable_plugins/csw-iso-plugin.zip
+
+ADD scripts /scripts
+
+RUN chmod +x /scripts/*.sh
